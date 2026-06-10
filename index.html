@@ -1174,7 +1174,7 @@
                 };
 
                 try {
-                    const response = await fetch('https://aesop-api.taskeagle/api/fables', {
+                    const response = await fetch('https://aesop-api.taskeagle.workers.dev/api/fables', {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -1194,7 +1194,7 @@
 
             async function loadCommunityFables() {
                 try {
-                    const response = await fetch('https://aesop-api.taskeagle.workers/api/fables');
+                    const response = await fetch('https://aesop-api.taskeagle.workers.dev/api/fables');
 
                     const fables = await response.json();
 
