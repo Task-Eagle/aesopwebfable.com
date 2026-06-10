@@ -52,3 +52,27 @@ async function loadPending() {
 }
 
 loadPending();
+
+async function approve(id) {
+
+    await fetch(
+        `https://YOUR-WORKER.workers.dev/api/admin/approve/${id}`,
+        {
+            method: 'POST'
+        }
+    );
+
+    loadPending();
+}
+
+async function reject(id) {
+
+    await fetch(
+        `https://YOUR-WORKER.workers.dev/api/admin/reject/${id}`,
+        {
+            method: 'POST'
+        }
+    );
+
+    loadPending();
+}
