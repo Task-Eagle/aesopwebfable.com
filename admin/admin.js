@@ -2,7 +2,7 @@ async function loadPending() {
 
     const response =
         await fetch(
-            'https://YOUR-WORKER.workers.dev/api/admin/pending'
+            'https://aesop-api.taskeagle.workers.dev/api/admin/pending'
         );
 
     const fables =
@@ -56,7 +56,7 @@ loadPending();
 async function approve(id) {
 
     await fetch(
-        `https://YOUR-WORKER.workers.dev/api/admin/approve/${id}`,
+        `https://aesop-api.taskeagle.workers.dev/api/admin/approve/${id}`,
         {
             method: 'POST'
         }
@@ -68,7 +68,7 @@ async function approve(id) {
 async function reject(id) {
 
     await fetch(
-        `https://YOUR-WORKER.workers.dev/api/admin/reject/${id}`,
+        `https://aesop-api.taskeagle.workers.dev/api/admin/reject/${id}`,
         {
             method: 'POST'
         }
