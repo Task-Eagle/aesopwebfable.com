@@ -1,0 +1,1282 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>The Aesop Web Fable Project - Community Classic Lore</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- FontAwesome for Premium Literary Icons & Socials -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <!-- Google Fonts: Playfair Display for Serifs & Inter for Clean Reading -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+            rel="stylesheet" />
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                            serif: ["Playfair Display", "serif"]
+                        },
+                        colors: {
+                            amber: {
+                                50: "#fefdf8",
+                                100: "#fdfbe7",
+                                900: "#451a03"
+                            },
+                            emerald: {
+                                800: "#064e3b",
+                                900: "#022c22"
+                            }
+                        }
+                    }
+                }
+            };
+        </script>
+        <style>
+            /* Custom smooth scrollbar styling to match literary aesthetic */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #f7f6f0;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #d4d0c1;
+                border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #b5b09c;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-[#fcfbf7] text-slate-800 font-sans selection:bg-amber-100 selection:text-amber-900 overflow-x-hidden">
+        <!-- Sticky Glassmorphic Navigation Ribbon -->
+        <header
+            class="sticky top-0 z-50 w-full border-b border-stone-200/80 bg-stone-100/90 backdrop-blur-md transition-all duration-300">
+            <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <span
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-800 to-emerald-950 text-amber-400 shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-feather-pointed text-lg"></i>
+                    </span>
+                    <div>
+                        <span class="block text-lg font-serif font-bold tracking-tight text-emerald-950 leading-none"
+                            >Aesop Web Fable</span
+                        >
+                        <span class="text-xs font-semibold tracking-wider text-amber-700 uppercase">Project Hub</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="#" class="text-sm font-medium text-emerald-950 hover:text-amber-700 transition-colors"
+                        >Home</a
+                    >
+
+                    <!-- Explore Dropdown Trigger -->
+                    <div class="relative group/dropdown">
+                        <button
+                            class="flex items-center gap-1.5 text-sm font-medium text-emerald-950 hover:text-amber-700 transition-colors py-2 focus:outline-none">
+                            Explore Fables
+                            <i
+                                class="fa-solid fa-chevron-down text-[10px] group-hover/dropdown:rotate-180 transition-transform duration-300"></i>
+                        </button>
+                        <!-- Dropdown Content Container -->
+                        <div
+                            class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-80 rounded-2xl border border-stone-200 bg-white p-4 shadow-xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 transform origin-top translate-y-2 group-hover/dropdown:translate-y-0 z-50">
+                            <div class="grid grid-cols-1 gap-3">
+                                <span class="text-xs font-bold uppercase tracking-wider text-stone-400"
+                                    >By Classification</span
+                                >
+
+                                <a
+                                    href="fables/tortoise-vs-hare.html"
+                                    class="flex items-start gap-3 rounded-lg p-2 hover:bg-amber-50/50 transition-colors">
+                                    <span class="text-lg">🐢</span>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 leading-tight">
+                                            Tortoise & The Hare
+                                        </h4>
+                                        <p class="text-[11px] text-slate-500">Slow and steady wins the race.</p>
+                                    </div>
+                                </a>
+
+                                <a
+                                    href="fables/fox-and-grapes.html"
+                                    class="flex items-start gap-3 rounded-lg p-2 hover:bg-amber-50/50 transition-colors">
+                                    <span class="text-lg">🦊</span>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 leading-tight">
+                                            The Fox & The Grapes
+                                        </h4>
+                                        <p class="text-[11px] text-slate-500">
+                                            It is easy to despise what you cannot get.
+                                        </p>
+                                    </div>
+                                </a>
+
+                                <a
+                                    href="fables/lion-and-mouse.html"
+                                    class="flex items-start gap-3 rounded-lg p-2 hover:bg-amber-50/50 transition-colors">
+                                    <span class="text-lg">🦁</span>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 leading-tight">
+                                            The Lion & The Mouse
+                                        </h4>
+                                        <p class="text-[11px] text-slate-500">
+                                            Little friends may prove great friends.
+                                        </p>
+                                    </div>
+                                </a>
+
+                                <div class="border-t border-stone-100 my-1 pt-2">
+                                    <a
+                                        href="#fables-library"
+                                        class="text-xs font-semibold text-amber-700 hover:text-emerald-900 flex items-center gap-1">
+                                        Browse All 120+ Fables <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown 2: About/Community -->
+                    <div class="relative group/community">
+                        <button
+                            class="flex items-center gap-1.5 text-sm font-medium text-emerald-950 hover:text-amber-700 transition-colors py-2 focus:outline-none">
+                            Community
+                            <i
+                                class="fa-solid fa-chevron-down text-[10px] group-hover/community:rotate-180 transition-transform duration-300"></i>
+                        </button>
+                        <!-- Community Dropdown Menu -->
+                        <div
+                            class="absolute right-0 top-full mt-1 w-56 rounded-xl border border-stone-200 bg-white p-2 shadow-xl opacity-0 invisible group-hover/community:opacity-100 group-hover/community:visible transition-all duration-300 transform origin-top translate-y-2 group-hover/community:translate-y-0 z-50">
+                            <a
+                                href="#community-form"
+                                class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-stone-50 transition-colors">
+                                <i class="fa-solid fa-pen-nib text-stone-400 w-4"></i> Submit Translation
+                            </a>
+                            <a
+                                href="#fables-library"
+                                class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-stone-50 transition-colors">
+                                <i class="fa-solid fa-star text-stone-400 w-4"></i> Rate & Review
+                            </a>
+                        </div>
+                    </div>
+
+                    <a
+                        href="#community-form"
+                        class="rounded-lg bg-emerald-800 px-4 py-2 text-xs font-semibold tracking-wide text-amber-100 shadow-md hover:bg-emerald-900 transition-all">
+                        Contribute
+                    </a>
+
+                    <div id="auth-container" class="flex items-center gap-3">
+                        <button
+                            id="login-btn"
+                            class="rounded-xl border border-amber-700 px-4 py-2 text-xs font-bold text-amber-800 hover:bg-amber-50">
+                            Sign In
+                        </button>
+
+                        <div id="user-menu" class="hidden items-center gap-2">
+                            <img id="user-avatar" class="w-8 h-8 rounded-full" src="" alt="Profile" />
+
+                            <span id="user-name" class="text-xs font-semibold text-emerald-950"> </span>
+
+                            <a href="/admin" id="admin-link" class="hidden text-xs font-bold text-amber-700"> Admin </a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Hamburger Menu Button -->
+                <button
+                    id="menu-btn"
+                    aria-label="Toggle Menu"
+                    class="rounded-lg p-2 text-slate-700 hover:bg-stone-200/50 focus:outline-none md:hidden transition-colors">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu (Accordion & links) -->
+            <div id="mobile-menu" class="hidden border-t border-stone-200 bg-[#fdfbf7] px-4 py-4 md:hidden shadow-lg">
+                <div class="flex flex-col gap-3">
+                    <a href="#" class="text-sm font-semibold text-slate-900 py-1.5 border-b border-stone-100">Home</a>
+
+                    <!-- Mobile Expandable Section -->
+                    <div>
+                        <button
+                            id="mobile-dropdown-btn"
+                            class="flex w-full items-center justify-between text-sm font-semibold text-slate-900 py-1.5 border-b border-stone-100 focus:outline-none">
+                            Browse Fables <i class="fa-solid fa-chevron-down text-[10px]" id="mobile-chevron"></i>
+                        </button>
+                        <div
+                            id="mobile-dropdown-content"
+                            class="hidden pl-4 pr-2 py-2 flex flex-col gap-2.5 bg-stone-50/50 rounded-lg mt-1">
+                            <a
+                                href="fables/tortoise-vs-hare.html"
+                                class="flex items-center justify-between text-xs text-slate-700 py-1">
+                                <span>🐢 Tortoise & The Hare</span> <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </a>
+                            <a
+                                href="fables/fox-and-grapes.html"
+                                class="flex items-center justify-between text-xs text-slate-700 py-1">
+                                <span>🦊 The Fox & The Grapes</span> <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </a>
+                            <a
+                                href="fables/lion-and-mouse.html"
+                                class="flex items-center justify-between text-xs text-slate-700 py-1">
+                                <span>🦁 The Lion & The Mouse</span> <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a
+                        href="#community-form"
+                        class="text-sm font-semibold text-slate-900 py-1.5 border-b border-stone-100"
+                        >Contribute</a
+                    >
+                    <a
+                        href="#community-form"
+                        class="mt-2 text-center rounded-xl bg-emerald-800 px-4 py-3 text-xs font-semibold tracking-wide text-amber-100 shadow-md">
+                        Submit Translation
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Beautiful Literary Hero Section -->
+        <section
+            class="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-[#01241b] to-[#01140f] py-20 lg:py-32 text-white">
+            <!-- Graphic backgrounds / light leaks / sparkles -->
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,119,6,0.12),transparent_45%)]"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#fcfbf7] to-transparent"></div>
+
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Content Area -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-amber-400">
+                            <i class="fa-solid fa-book-open"></i> Preserving Antiquity for the Digital Era
+                        </span>
+                        <h1
+                            class="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold tracking-tight leading-none text-amber-50">
+                            The Aesop Web
+                            <span class="text-amber-400 italic block mt-1.5 font-normal">Fable Project</span>
+                        </h1>
+                        <p
+                            class="max-w-2xl text-base sm:text-lg text-emerald-100/90 leading-relaxed font-light mx-auto lg:mx-0">
+                            Explore, rate, and translate humanity's most timeless folklore. A completely decentralized,
+                            community-curated archive of Aesop's wisdom. Discover the morals that forged generations.
+                        </p>
+
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a
+                                href="#fables-library"
+                                class="group flex items-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-emerald-950 hover:bg-amber-300 transition-all duration-300 shadow-xl shadow-amber-400/10">
+                                Explore Archive
+                                <i
+                                    class="fa-solid fa-compass group-hover:rotate-45 transition-transform duration-300"></i>
+                            </a>
+                            <a
+                                href="#community-form"
+                                class="rounded-xl border-2 border-stone-200/25 backdrop-blur-sm hover:bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition-all duration-300">
+                                Share a Fable
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual Area: Interactive Ancient-Modern Book Layout -->
+                    <div class="lg:col-span-5 relative w-full flex justify-center mt-6 lg:mt-0">
+                        <div
+                            class="relative w-72 h-96 sm:w-80 sm:h-[420px] rounded-2xl bg-gradient-to-tr from-amber-900 to-emerald-900 p-3 shadow-2xl shadow-emerald-950/50 border border-amber-400/30 transform hover:scale-[1.02] transition-transform duration-300">
+                            <!-- Inside book graphic page preview -->
+                            <div
+                                class="h-full w-full rounded-xl bg-amber-50/95 flex flex-col justify-between p-6 border-4 border-amber-100/40 text-stone-800">
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between border-b border-stone-200 pb-2">
+                                        <span class="font-serif italic font-bold text-emerald-950"
+                                            >Fable No. LXXIV</span
+                                        >
+                                        <span class="text-xs tracking-widest text-amber-700 uppercase">Vol I</span>
+                                    </div>
+                                    <h3 class="font-serif text-xl sm:text-2xl font-bold text-emerald-900">
+                                        The Fox & The Grapes
+                                    </h3>
+                                    <p class="text-xs text-stone-600 leading-relaxed italic">
+                                        "A hungry fox saw some fine bunches of grapes hanging from a vine. He tried to
+                                        reach them, but was unable to spring high enough..."
+                                    </p>
+                                </div>
+                                <div class="border-t border-dashed border-stone-300 pt-3 space-y-1">
+                                    <span class="block text-[10px] font-bold uppercase tracking-wider text-amber-800"
+                                        >The Moral:</span
+                                    >
+                                    <p class="text-xs font-semibold text-emerald-950">
+                                        "It is easy to despise what you cannot get."
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Book corner decoration element -->
+                            <div class="absolute top-5 right-5 w-6 h-6 border-r-2 border-t-2 border-amber-400/20"></div>
+                            <div
+                                class="absolute bottom-5 left-5 w-6 h-6 border-l-2 border-b-2 border-amber-400/20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrated Search Hub -->
+        <section class="relative -translate-y-1/2 z-30 mx-auto max-w-4xl px-4 sm:px-6">
+            <div class="rounded-3xl bg-white p-4 shadow-xl border border-stone-200/50">
+                <div class="relative flex flex-col md:flex-row gap-3">
+                    <!-- Real-time Input field -->
+                    <div class="relative flex-1">
+                        <i
+                            class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"></i>
+                        <input
+                            type="text"
+                            id="main-search-input"
+                            placeholder="Search morals, animals, fables (e.g., Fox, Tortoise)..."
+                            class="w-full rounded-2xl bg-stone-50 py-3.5 pl-12 pr-4 text-sm text-stone-800 font-medium placeholder-stone-400 border border-transparent focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none" />
+                    </div>
+                    <!-- Selection filter / classification dropdown -->
+                    <div class="flex gap-2">
+                        <select
+                            id="category-filter"
+                            class="rounded-2xl bg-stone-50 border border-transparent px-4 py-3 text-xs font-bold text-stone-600 focus:bg-white focus:border-amber-500 transition-all outline-none cursor-pointer">
+                            <option value="all">All Genres</option>
+                            <option value="animals">Animals</option>
+                            <option value="wisdom">Wisdom</option>
+                            <option value="warnings">Warnings</option>
+                        </select>
+
+                        <button
+                            onclick="triggerSearchSearch()"
+                            class="rounded-2xl bg-emerald-800 hover:bg-emerald-900 px-6 py-3 text-xs font-bold text-amber-100 transition-colors shadow-lg shadow-emerald-950/15">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fable Of The Day Showcase Section -->
+        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
+            <div class="text-center space-y-2 mb-10">
+                <h2 class="text-3xl font-serif font-bold text-emerald-950 tracking-tight">Today's Wisdom Spotlight</h2>
+                <p class="text-sm text-stone-500 max-w-lg mx-auto">
+                    Selected by community votes and algorithmically translated to keep minds sharp today.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Left Card: The Showcase Module -->
+                <div
+                    class="lg:col-span-8 bg-gradient-to-tr from-[#faf9f4] to-white rounded-3xl border border-stone-200/80 p-6 sm:p-10 flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none group-hover:scale-110 transition-transform duration-700">
+                        <i class="fa-solid fa-leaf text-9xl text-emerald-800"></i>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Card Top Headers -->
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <span
+                                class="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-900">
+                                <span class="flex h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                                Fable Of the Day
+                            </span>
+                            <div class="flex items-center gap-3 text-xs font-semibold text-stone-400">
+                                <span><i class="fa-solid fa-heart text-rose-500"></i> 1,420 Stars</span>
+                                <span>•</span>
+                                <span>By Aesop Original</span>
+                            </div>
+                        </div>
+
+                        <!-- Fable Body Content -->
+                        <div class="space-y-4">
+                            <h3 class="text-2xl sm:text-3xl font-serif font-bold text-emerald-950 leading-tight">
+                                The Crow and the Pitcher
+                            </h3>
+                            <p class="text-sm sm:text-base text-stone-600 leading-relaxed font-light">
+                                A Crow, half-dead with thirst, came upon a Pitcher which had once been full of water.
+                                But when the Crow put its beak into the mouth of the Pitcher he found that only very
+                                little water was left in it, and that he could not reach far enough down to get at it.
+                                He tried, and he tried, but at last had to give up in despair.
+                            </p>
+                            <p class="text-sm sm:text-base text-stone-600 leading-relaxed font-light">
+                                Then a Thought came to him, and he took a pebble and dropped it into the pitcher. Then
+                                he took another pebble and dropped it into the pitcher. Then he took another pebble and
+                                dropped it into the pitcher... At last, he saw the water mount up near him, and after
+                                casting in a few more pebbles he was able to quench his thirst.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Moral Trigger Component -->
+                    <div class="mt-8 border-t border-stone-200/60 pt-6">
+                        <div
+                            class="rounded-2xl bg-amber-50/50 border border-amber-200/50 p-4 transition-all duration-300"
+                            id="moral-container">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-amber-800">
+                                        Contemplate This Moral
+                                    </h4>
+                                    <p
+                                        id="moral-text"
+                                        class="text-sm font-serif font-bold text-emerald-950 hidden mt-1 transition-opacity duration-500">
+                                        "Little by little does the trick." / "Necessity is the mother of invention."
+                                    </p>
+                                    <p id="moral-placeholder" class="text-sm text-stone-500 italic mt-1">
+                                        Read and ponder. Click the reveal key once ready to unveil the fable's wisdom.
+                                    </p>
+                                </div>
+                                <button
+                                    onclick="revealMoral()"
+                                    id="moral-reveal-btn"
+                                    class="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-amber-400 hover:bg-amber-500 px-4 py-2.5 text-xs font-bold text-amber-950 transition-colors">
+                                    <i class="fa-solid fa-eye-slash"></i> <span id="btn-text">Reveal Moral</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Card: Quick Stat & Links Showcase -->
+                <div
+                    class="lg:col-span-4 bg-emerald-950 rounded-3xl p-6 sm:p-8 text-amber-50 flex flex-col justify-between shadow-sm relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-[radial-gradient(circle_at_0%_100%,rgba(217,119,6,0.15),transparent_60%)]"></div>
+
+                    <div class="space-y-6 relative z-10">
+                        <h3 class="text-xl font-serif font-bold tracking-tight">Project Statistics</h3>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl bg-emerald-900/40 border border-emerald-800/55 p-3.5">
+                                <span class="block text-2xl font-bold font-serif text-amber-400">128</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-200/70"
+                                    >Archived Fables</span
+                                >
+                            </div>
+                            <div class="rounded-2xl bg-emerald-900/40 border border-emerald-800/55 p-3.5">
+                                <span class="block text-2xl font-bold font-serif text-amber-400">4.9k</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-200/70"
+                                    >Translations</span
+                                >
+                            </div>
+                            <div class="rounded-2xl bg-emerald-900/40 border border-emerald-800/55 p-3.5">
+                                <span class="block text-2xl font-bold font-serif text-amber-400">18k</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-200/70"
+                                    >Contributors</span
+                                >
+                            </div>
+                            <div class="rounded-2xl bg-emerald-900/40 border border-emerald-800/55 p-3.5">
+                                <span class="block text-2xl font-bold font-serif text-amber-400">100%</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-200/70"
+                                    >Free & Open</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="border-t border-emerald-800/60 pt-4 space-y-3">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">
+                                Quick Links To Explore
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li>
+                                    <a
+                                        href="fables/tortoise-vs-hare.html"
+                                        class="flex items-center justify-between text-emerald-100/80 hover:text-amber-400 transition-colors">
+                                        <span>🐢 The Tortoise and The Hare</span>
+                                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="fables/fox-and-grapes.html"
+                                        class="flex items-center justify-between text-emerald-100/80 hover:text-amber-400 transition-colors">
+                                        <span>🦊 The Fox and The Grapes</span>
+                                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="fables/lion-and-mouse.html"
+                                        class="flex items-center justify-between text-emerald-100/80 hover:text-amber-400 transition-colors">
+                                        <span>🦁 The Lion and The Mouse</span>
+                                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 relative z-10">
+                        <p class="text-[11px] text-emerald-200/70 italic leading-relaxed">
+                            "Prejudices are what fools use for reason." Join us in gathering translations globally.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fables Directory and Real-Time Interactive Database -->
+        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16" id="fables-library">
+            <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-10">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Explore and Interact</span>
+                    <h2 class="text-3xl font-serif font-bold text-emerald-950 mt-1">Community Contributed Database</h2>
+                </div>
+                <!-- Category buttons for fast navigation -->
+                <div class="flex flex-wrap gap-2">
+                    <button
+                        onclick="filterFablesCategory('all')"
+                        class="cat-pill rounded-full bg-emerald-800 text-amber-50 px-4.5 py-2 text-xs font-semibold transition-all">
+                        All Fables
+                    </button>
+                    <button
+                        onclick="filterFablesCategory('animals')"
+                        class="cat-pill rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200/75 px-4.5 py-2 text-xs font-semibold transition-all">
+                        Animals
+                    </button>
+                    <button
+                        onclick="filterFablesCategory('wisdom')"
+                        class="cat-pill rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200/75 px-4.5 py-2 text-xs font-semibold transition-all">
+                        Wisdom
+                    </button>
+                    <button
+                        onclick="filterFablesCategory('warnings')"
+                        class="cat-pill rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200/75 px-4.5 py-2 text-xs font-semibold transition-all">
+                        Warnings
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fables Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="fables-grid">
+                <!-- Dynamically populated via JavaScript, initial server mock templates included for static crawlability and fallback -->
+
+                <div id="community-fables" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+
+                <!-- Card 1 -->
+                <div
+                    class="fable-card flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300"
+                    data-category="animals"
+                    data-title="The Tortoise and the Hare"
+                    data-moral="Slow and steady wins the race.">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-800 uppercase"
+                                >Animals</span
+                            >
+                            <div class="flex items-center gap-1 text-[11px] text-stone-400">
+                                <i class="fa-solid fa-star text-amber-400"></i> 4.9 (248)
+                            </div>
+                        </div>
+                        <h3 class="mt-4 font-serif text-lg font-bold text-slate-900">The Tortoise and the Hare</h3>
+                        <p class="mt-2 text-xs text-stone-600 line-clamp-3 leading-relaxed">
+                            A Hare insulted a Tortoise for his slow pace. The Tortoise challenged him to a race, which
+                            the Hare, too confident, fell asleep during.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-[11px] italic font-medium text-amber-800">"Slow and steady..."</span>
+                        <a
+                            href="fables/tortoise-vs-hare.html"
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950 transition-colors">
+                            Read Fable <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="fable-card flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300"
+                    data-category="warnings"
+                    data-title="The Fox and the Grapes"
+                    data-moral="It is easy to despise what you cannot get.">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-800 uppercase"
+                                >Warnings</span
+                            >
+                            <div class="flex items-center gap-1 text-[11px] text-stone-400">
+                                <i class="fa-solid fa-star text-amber-400"></i> 4.8 (192)
+                            </div>
+                        </div>
+                        <h3 class="mt-4 font-serif text-lg font-bold text-slate-900">The Fox and the Grapes</h3>
+                        <p class="mt-2 text-xs text-stone-600 line-clamp-3 leading-relaxed">
+                            A hungry fox saw gorgeous clusters of grapes dangling high up. Failing to leap enough to
+                            pluck them, he scoffed, "They are surely sour."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-[11px] italic font-medium text-amber-800">"It is easy to despise..."</span>
+                        <a
+                            href="fables/fox-and-grapes.html"
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950 transition-colors">
+                            Read Fable <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="fable-card flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300"
+                    data-category="warnings"
+                    data-title="The Boy Who Cried Wolf"
+                    data-moral="Liers are not believed even when they speak the truth.">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-800 uppercase"
+                                >Warnings</span
+                            >
+                            <div class="flex items-center gap-1 text-[11px] text-stone-400">
+                                <i class="fa-solid fa-star text-amber-400"></i> 4.7 (310)
+                            </div>
+                        </div>
+                        <h3 class="mt-4 font-serif text-lg font-bold text-slate-900">The Boy Who Cried Wolf</h3>
+                        <p class="mt-2 text-xs text-stone-600 line-clamp-3 leading-relaxed">
+                            A shepherd boy repeatedly tricks nearby villagers into thinking a wolf is attacking his
+                            flock. When a real wolf attacks, no one responds.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-[11px] italic font-medium text-amber-800">"Truth is precious..."</span>
+                        <a
+                            href="fables/boy-who-cried-wolf.html"
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950 transition-colors">
+                            Read Fable <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="fable-card flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300"
+                    data-category="animals"
+                    data-title="The Lion and the Mouse"
+                    data-moral="Little friends may prove great friends.">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-800 uppercase"
+                                >Animals</span
+                            >
+                            <div class="flex items-center gap-1 text-[11px] text-stone-400">
+                                <i class="fa-solid fa-star text-amber-400"></i> 4.9 (185)
+                            </div>
+                        </div>
+                        <h3 class="mt-4 font-serif text-lg font-bold text-slate-900">The Lion and the Mouse</h3>
+                        <p class="mt-2 text-xs text-stone-600 line-clamp-3 leading-relaxed">
+                            A tiny mouse accidentally awakens a lion. The lion releases him, only to be captured later
+                            by hunters. The mouse gnaws the ropes to free him.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-[11px] italic font-medium text-amber-800">"No act of kindness..."</span>
+                        <a
+                            href="fables/lion-and-mouse.html"
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950 transition-colors">
+                            Read Fable <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                    class="fable-card flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300"
+                    data-category="wisdom"
+                    data-title="The Crow and the Pitcher"
+                    data-moral="Necessity is the mother of invention.">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-800 uppercase"
+                                >Wisdom</span
+                            >
+                            <div class="flex items-center gap-1 text-[11px] text-stone-400">
+                                <i class="fa-solid fa-star text-amber-400"></i> 4.9 (420)
+                            </div>
+                        </div>
+                        <h3 class="mt-4 font-serif text-lg font-bold text-slate-900">The Crow and the Pitcher</h3>
+                        <p class="mt-2 text-xs text-stone-600 line-clamp-3 leading-relaxed">
+                            A thirsty crow drops stones into a half-empty pitcher until the rising water level enables
+                            him to comfortably drink and survive.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-[11px] italic font-medium text-amber-800">"Little by little..."</span>
+                        <a
+                            href="fables/crow-and-pitcher.html"
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950 transition-colors">
+                            Read Fable <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div
+                    class="fable-card flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300"
+                    data-category="wisdom"
+                    data-title="The Town Mouse & Country Mouse"
+                    data-moral="Better beans and bacon in peace than cakes and ale in fear.">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-800 uppercase"
+                                >Wisdom</span
+                            >
+                            <div class="flex items-center gap-1 text-[11px] text-stone-400">
+                                <i class="fa-solid fa-star text-amber-400"></i> 4.6 (143)
+                            </div>
+                        </div>
+                        <h3 class="mt-4 font-serif text-lg font-bold text-slate-900">The Town Mouse & Country Mouse</h3>
+                        <p class="mt-2 text-xs text-stone-600 line-clamp-3 leading-relaxed">
+                            A country mouse visits his cousin in the city to experience luxurious food, but flees upon
+                            realizing the deadly dangers and stress associated with city life.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-[11px] italic font-medium text-amber-800">"Peace is rich..."</span>
+                        <a
+                            href="fables/town-country-mouse.html"
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950 transition-colors">
+                            Read Fable <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Fables Found Placeholder -->
+            <div
+                id="no-results-placeholder"
+                class="hidden flex-col items-center justify-center py-16 text-center space-y-4">
+                <span
+                    class="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-50 text-amber-600 border border-amber-100">
+                    <i class="fa-solid fa-magnifying-glass text-xl"></i>
+                </span>
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-slate-900">No fables match your search</h4>
+                    <p class="text-xs text-stone-400 mt-1 max-w-sm">
+                        Try using simpler keywords or browse individual categories using the filters above.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Contribution Hub -->
+        <section
+            class="bg-gradient-to-b from-[#f5f3e9] to-[#fcfbf7] border-t border-b border-stone-200/60 py-16"
+            id="community-form">
+            <div class="mx-auto max-w-4xl px-4 sm:px-6">
+                <div class="rounded-3xl bg-white p-6 sm:p-10 shadow-lg border border-stone-200/80">
+                    <div class="text-center space-y-2 mb-8">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Open Contribution</span>
+                        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-emerald-950">
+                            Suggest a Fable translation
+                        </h2>
+                        <p class="text-xs text-stone-500 max-w-md mx-auto">
+                            This project belongs to the public domain. Share translations, historical variations, or
+                            custom moral formulations.
+                        </p>
+                    </div>
+
+                    <input
+    type="file"
+    id="fable-image"
+    accept=".jpg,.jpeg,.png"
+    class="w-full rounded-xl border border-stone-200 p-3">
+                    <form id="suggest-form" onsubmit="handleFormSubmission(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-bold text-stone-600">Your Pseudonym / Name</label>
+                                <input
+                                    type="text"
+                                    required
+                                    id="contributor-name"
+                                    placeholder="e.g., Jean de La Fontaine"
+                                    class="w-full rounded-xl bg-stone-50 px-4 py-3 text-xs text-stone-800 placeholder-stone-400 border border-transparent focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none" />
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-bold text-stone-600">Fable Subject / Title</label>
+                                <input
+                                    type="text"
+                                    required
+                                    id="fable-name"
+                                    placeholder="e.g., The Ant and the Grasshopper"
+                                    class="w-full rounded-xl bg-stone-50 px-4 py-3 text-xs text-stone-800 placeholder-stone-400 border border-transparent focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none" />
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-stone-600">Select Classification Category</label>
+                            <select
+                                required
+                                id="contributed-category"
+                                class="w-full rounded-xl bg-stone-50 px-4 py-3 text-xs text-stone-600 border border-transparent focus:bg-white focus:border-amber-500 transition-all outline-none cursor-pointer">
+                                <option value="">Choose Category</option>
+                                <option value="animals">Animals</option>
+                                <option value="wisdom">Wisdom</option>
+                                <option value="warnings">Warnings</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-stone-600">Your Translation or Summary Version</label>
+                            <textarea
+                                rows="4"
+                                required
+                                id="fable-body"
+                                placeholder="Write the translation of the fable here..."
+                                class="w-full rounded-xl bg-stone-50 px-4 py-3 text-xs text-stone-800 placeholder-stone-400 border border-transparent focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none resize-none"></textarea>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-stone-600">Derived Moral of the Story</label>
+                            <input
+                                type="text"
+                                required
+                                id="fable-moral"
+                                placeholder="e.g., It is best to prepare for the days of necessity."
+                                class="w-full rounded-xl bg-stone-50 px-4 py-3 text-xs text-stone-800 placeholder-stone-400 border border-transparent focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none" />
+                        </div>
+
+                        <div class="pt-4 text-center">
+                            <button
+                                type="submit"
+                                class="w-full sm:w-auto rounded-xl bg-emerald-800 hover:bg-emerald-950 text-amber-100 font-bold text-xs px-8 py-4 tracking-wide shadow-lg shadow-emerald-950/20 transition-all">
+                                Propose to Community Queue
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Elegant Notification Toast -->
+        <div
+            id="toast-notification"
+            class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-500 max-w-sm w-full bg-emerald-950 text-white rounded-2xl shadow-2xl border border-amber-400/30 p-4 flex items-start gap-3">
+            <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-900 text-amber-400 shrink-0">
+                <i class="fa-solid fa-check-double text-sm"></i>
+            </span>
+            <div class="flex-1">
+                <h4 class="text-xs font-bold text-amber-100" id="toast-title">Submission Logged</h4>
+                <p class="text-[10px] text-emerald-100/80 mt-1 leading-relaxed" id="toast-message">
+                    Your fable submission has been staged for the decentralized review process.
+                </p>
+            </div>
+            <button onclick="dismissToast()" class="text-white/60 hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark text-xs"></i>
+            </button>
+        </div>
+
+        <!-- Premium Literary Footer -->
+        <footer class="bg-gradient-to-b from-[#111c18] to-[#040a08] text-stone-300 border-t border-stone-800/50">
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                    <!-- Main Brand Area -->
+                    <div class="md:col-span-4 space-y-4">
+                        <a href="#" class="flex items-center gap-3">
+                            <span
+                                class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400 text-emerald-950 shadow-md">
+                                <i class="fa-solid fa-feather-pointed text-lg"></i>
+                            </span>
+                            <div>
+                                <span class="block text-lg font-serif font-bold tracking-tight text-white leading-none"
+                                    >Aesop Web Fable</span
+                                >
+                                <span class="text-[10px] font-bold tracking-wider text-amber-400 uppercase"
+                                    >Decentralized Archive</span
+                                >
+                            </div>
+                        </a>
+                        <p class="text-xs text-stone-400 leading-relaxed font-light">
+                            A modern, community-maintained digital catalog preserving the timeless moral frameworks of
+                            Aesop. Completely public-domain, interactive, and translated globally.
+                        </p>
+
+                        <!-- Dynamic Social Icons Component requested by User -->
+                        <div class="space-y-2 pt-2">
+                            <span class="block text-[10px] font-bold tracking-widest uppercase text-stone-500"
+                                >Connect with the project</span
+                            >
+                            <div class="flex items-center gap-3">
+                                <a
+                                    href="https://youtube.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group relative flex h-9 w-9 items-center justify-center rounded-lg bg-stone-900 border border-stone-800 hover:border-amber-400 text-stone-400 hover:text-amber-400 transition-all duration-300"
+                                    title="YouTube Profile">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                                <a
+                                    href="https://facebook.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group relative flex h-9 w-9 items-center justify-center rounded-lg bg-stone-900 border border-stone-800 hover:border-amber-400 text-stone-400 hover:text-amber-400 transition-all duration-300"
+                                    title="Facebook Page">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a
+                                    href="https://instagram.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group relative flex h-9 w-9 items-center justify-center rounded-lg bg-stone-900 border border-stone-800 hover:border-amber-400 text-stone-400 hover:text-amber-400 transition-all duration-300"
+                                    title="Instagram Profile">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Quick Folders Navigation -->
+                    <div class="md:col-span-3 space-y-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">Archived Fable Links</h4>
+                        <ul class="space-y-2.5 text-xs text-stone-400 font-medium">
+                            <li>
+                                <a
+                                    href="fables/tortoise-vs-hare.html"
+                                    class="hover:text-white transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-file-invoice text-[10px] text-stone-600"></i> The Tortoise and
+                                    the Hare
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="fables/fox-and-grapes.html"
+                                    class="hover:text-white transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-file-invoice text-[10px] text-stone-600"></i> The Fox and the
+                                    Grapes
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="fables/lion-and-mouse.html"
+                                    class="hover:text-white transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-file-invoice text-[10px] text-stone-600"></i> The Lion and the
+                                    Mouse
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="fables/crow-and-pitcher.html"
+                                    class="hover:text-white transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-file-invoice text-[10px] text-stone-600"></i> The Crow and the
+                                    Pitcher
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Structural resources -->
+                    <div class="md:col-span-2 space-y-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">Directory Folders</h4>
+                        <ul class="space-y-2.5 text-xs text-stone-400 font-medium">
+                            <li>
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-regular fa-folder text-amber-500/80"></i> /fables
+                                </span>
+                            </li>
+                            <li>
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-regular fa-folder-closed text-stone-600"></i> /assets
+                                </span>
+                            </li>
+                            <li>
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-regular fa-folder-closed text-stone-600"></i> /community
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Legals / Licenses -->
+                    <div class="md:col-span-3 space-y-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">Intellectual Property</h4>
+                        <p class="text-xs text-stone-400 leading-relaxed font-light">
+                            Aesop's original texts are entirely inside the
+                            <strong class="text-stone-300 font-semibold">Public Domain</strong>. Modern translations
+                            hosted on this portal are licensed under CC Creative Commons 4.0.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bottom Disclaimer Bar -->
+                <div
+                    class="mt-12 border-t border-stone-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-stone-500 font-medium">
+                    <p>© 2026 The Aesop Web Fable Project. Maintained by modern scholars worldwide.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-stone-300 transition-colors">Digital Ethics</a>
+                        <a href="#" class="hover:text-stone-300 transition-colors">Decentralized Archive Terms</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Interactive Website Application Engine logic -->
+        <script>
+            // Global variables & elements
+            const menuBtn = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const mobileDropdownBtn = document.getElementById("mobile-dropdown-btn");
+            const mobileDropdownContent = document.getElementById("mobile-dropdown-content");
+            const mobileChevron = document.getElementById("mobile-chevron");
+
+            const mainSearchInput = document.getElementById("main-search-input");
+            const categoryFilter = document.getElementById("category-filter");
+            const fablesGrid = document.getElementById("fables-grid");
+            const fableCards = document.querySelectorAll(".fable-card");
+            const noResultsPlaceholder = document.getElementById("no-results-placeholder");
+
+            let activeCategory = "all";
+
+            // 1. Mobile Menu Open/Close Toggler
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                const menuIcon = document.getElementById("menu-icon");
+                if (mobileMenu.classList.contains("hidden")) {
+                    menuIcon.className = "fa-solid fa-bars text-xl";
+                } else {
+                    menuIcon.className = "fa-solid fa-xmark text-xl";
+                }
+            });
+
+            // 2. Mobile Fables Accordion Trigger
+            mobileDropdownBtn.addEventListener("click", () => {
+                mobileDropdownContent.classList.toggle("hidden");
+                if (mobileDropdownContent.classList.contains("hidden")) {
+                    mobileChevron.style.transform = "rotate(0deg)";
+                } else {
+                    mobileChevron.style.transform = "rotate(180deg)";
+                }
+            });
+
+            // 3. Fable of the Day moral reveal logic
+            let moralRevealed = false;
+            function revealMoral() {
+                const moralText = document.getElementById("moral-text");
+                const moralPlaceholder = document.getElementById("moral-placeholder");
+                const revealBtn = document.getElementById("moral-reveal-btn");
+                const btnText = document.getElementById("btn-text");
+                const moralContainer = document.getElementById("moral-container");
+
+                if (!moralRevealed) {
+                    moralText.classList.remove("hidden");
+                    moralPlaceholder.classList.add("hidden");
+                    btnText.textContent = "Conceal Moral";
+                    revealBtn.innerHTML = '<i class="fa-solid fa-eye"></i> Conceal Moral';
+                    moralContainer.classList.add("bg-amber-100/60", "border-amber-300");
+                    moralRevealed = true;
+                } else {
+                    moralText.classList.add("hidden");
+                    moralPlaceholder.classList.remove("hidden");
+                    btnText.textContent = "Reveal Moral";
+                    revealBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Reveal Moral';
+                    moralContainer.classList.remove("bg-amber-100/60", "border-amber-300");
+                    moralRevealed = false;
+                }
+            }
+
+            // 4. Client-side Real-time Search Engine
+            mainSearchInput.addEventListener("input", runSearch);
+            categoryFilter.addEventListener("change", runSearch);
+
+            function runSearch() {
+                const query = mainSearchInput.value.toLowerCase().trim();
+                const filterValue = categoryFilter.value;
+                let matchCount = 0;
+
+                fableCards.forEach((card) => {
+                    const cardTitle = card.getAttribute("data-title").toLowerCase();
+                    const cardCategory = card.getAttribute("data-category");
+                    const cardMoral = card.getAttribute("data-moral").toLowerCase();
+
+                    const matchesQuery = cardTitle.includes(query) || cardMoral.includes(query);
+                    const matchesCategory = filterValue === "all" || cardCategory === filterValue;
+
+                    if (matchesQuery && matchesCategory) {
+                        card.style.display = "flex";
+                        matchCount++;
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+
+                // Toggle visibility of empty results state placeholder
+                if (matchCount === 0) {
+                    noResultsPlaceholder.classList.remove("hidden");
+                    noResultsPlaceholder.classList.add("flex");
+                } else {
+                    noResultsPlaceholder.classList.add("hidden");
+                    noResultsPlaceholder.classList.remove("flex");
+                }
+            }
+
+            // Manual search submit triggers
+            function triggerSearchSearch() {
+                runSearch();
+                // Scroll user smoothly to database area if not already viewing it
+                document.getElementById("fables-library").scrollIntoView({ behavior: "smooth" });
+            }
+
+            // Fast Pill Filters
+            function filterFablesCategory(category) {
+                // Update active state class on category buttons
+                const pills = document.querySelectorAll(".cat-pill");
+                pills.forEach((pill) => {
+                    if (
+                        pill.textContent.toLowerCase().includes(category) ||
+                        (category === "all" && pill.textContent.toLowerCase().includes("all"))
+                    ) {
+                        pill.className =
+                            "cat-pill rounded-full bg-emerald-800 text-amber-50 px-4.5 py-2 text-xs font-semibold transition-all";
+                    } else {
+                        pill.className =
+                            "cat-pill rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200/75 px-4.5 py-2 text-xs font-semibold transition-all";
+                    }
+                });
+
+                // Set filter dropdown to match
+                categoryFilter.value = category;
+                runSearch();
+            }
+
+            // 5. Simulated Form Submission Staging & Toast Handler
+            async function handleFormSubmission(event) {
+                event.preventDefault();
+
+                const payload = {
+                    author: document.getElementById("contributor-name").value,
+
+                    title: document.getElementById("fable-name").value,
+
+                    category: document.getElementById("contributed-category").value,
+
+                    body: document.getElementById("fable-body").value,
+
+                    moral: document.getElementById("fable-moral").value
+                };
+
+                try {
+                    const response = await fetch("https://aesop-api.taskeagle/api/fables", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error();
+
+                    document.getElementById("suggest-form").reset();
+
+                    showToast("Submitted", "Your fable has entered review.");
+                } catch {
+                    showToast("Error", "Submission failed.");
+                }
+            }
+
+            async function loadCommunityFables() {
+                try {
+                    const response = await fetch("https://aesop-api.taskeagle.workers/api/fables");
+
+                    const fables = await response.json();
+
+                    const container = document.getElementById("community-fables");
+
+                    container.innerHTML = "";
+
+                    fables.forEach((fable) => {
+                        container.innerHTML += `
+                <article
+                    class="fable-card rounded-2xl
+                    border border-stone-200
+                    bg-white p-6">
+
+                    <div class="mb-3">
+
+                        <span
+                            class="text-xs
+                            font-bold
+                            text-emerald-800">
+
+                            Community Story
+                        </span>
+
+                    </div>
+
+                    <h3
+                        class="font-serif
+                        text-lg
+                        font-bold">
+
+                        ${fable.title}
+                    </h3>
+
+                    <p
+                        class="mt-2
+                        text-xs
+                        text-stone-500">
+
+                        by ${fable.author}
+                    </p>
+
+                    <a
+                        href="/fable.html?id=${fable.id}"
+                        class="mt-4 inline-block
+                        text-amber-700
+                        font-semibold">
+
+                        Read →
+                    </a>
+
+                </article>
+            `;
+                    });
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+
+            // Custom UI Toast mechanism
+            function showToast(title, message) {
+                const toast = document.getElementById("toast-notification");
+                document.getElementById("toast-title").textContent = title;
+                document.getElementById("toast-message").textContent = message;
+
+                // Animate In
+                toast.classList.remove("translate-y-24", "opacity-0");
+                toast.classList.add("translate-y-0", "opacity-100");
+
+                // Auto-dismiss after 6 seconds
+                setTimeout(() => {
+                    dismissToast();
+                }, 6000);
+            }
+
+            function dismissToast() {
+                const toast = document.getElementById("toast-notification");
+                toast.classList.remove("translate-y-0", "opacity-100");
+                toast.classList.add("translate-y-24", "opacity-0");
+            }
+            
+            loadCommunityFables();
+        </script>
+    </body>
+</html>

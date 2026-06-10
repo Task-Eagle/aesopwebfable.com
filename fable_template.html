@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tortoise and the Hare - The Aesop Web Fable Project</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Playfair Display for serif headings, Inter for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons for UI & Socials -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'georgia', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Premium glassmorphism & drop-shadow styles */
+    .glass {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .dark-glass {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(241, 245, 249, 1);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(203, 213, 225, 1);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-[#FDFBF7] text-slate-800 font-sans min-h-screen flex flex-col selection:bg-amber-100 selection:text-amber-900">
+
+  <!-- ================= NAV BAR (MATCHING HOMEPAGE) ================= -->
+  <nav class="sticky top-0 z-50 w-full glass border-b border-amber-900/10 transition-all duration-300 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="../index.html" class="flex items-center gap-2 group">
+            <span class="text-2xl text-amber-700"><i class="fa-solid fa-feather-pointed transform group-hover:rotate-12 transition-transform"></i></span>
+            <span class="font-serif font-bold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-amber-800 transition-colors">
+              Aesop Web Fables
+            </span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation Items -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="../index.html" class="px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-700 hover:bg-amber-50/50 transition-all">Home</a>
+          
+          <!-- Dropdown Trigger: Classic Fables -->
+          <div class="relative group">
+            <button class="inline-flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-700 hover:bg-amber-50/50 transition-all focus:outline-none">
+              <span>Classic Fables</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
+            </button>
+            <!-- Dropdown Menu -->
+            <div class="absolute left-0 mt-1 w-64 rounded-xl shadow-xl bg-white border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-2">
+              <a href="tortoise-vs-hare.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-800 transition-colors">
+                <span class="font-semibold block">The Tortoise and the Hare</span>
+                <span class="text-xs text-slate-400">Moral: Slow and steady wins the race.</span>
+              </a>
+              <a href="fox-and-grapes.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-800 transition-colors">
+                <span class="font-semibold block">The Fox and the Grapes</span>
+                <span class="text-xs text-slate-400">Moral: It is easy to despise what you cannot get.</span>
+              </a>
+              <a href="lion-and-mouse.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-800 transition-colors">
+                <span class="font-semibold block">The Lion and the Mouse</span>
+                <span class="text-xs text-slate-400">Moral: Little friends may prove great friends.</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dropdown Trigger: Categories -->
+          <div class="relative group">
+            <button class="inline-flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-700 hover:bg-amber-50/50 transition-all focus:outline-none">
+              <span>Categories</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
+            </button>
+            <div class="absolute left-0 mt-1 w-56 rounded-xl shadow-xl bg-white border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-2">
+              <a href="../index.html?filter=pride" class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-800 transition-colors">
+                <span class="w-2 h-2 rounded-full bg-red-400"></span> Pride & Humility
+              </a>
+              <a href="../index.html?filter=wisdom" class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-800 transition-colors">
+                <span class="w-2 h-2 rounded-full bg-blue-400"></span> Wisdom & Wit
+              </a>
+              <a href="../index.html?filter=kindness" class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-800 transition-colors">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Kindness & Help
+              </a>
+            </div>
+          </div>
+
+          <a href="../index.html#submit-fable" class="px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-700 hover:bg-amber-50/50 transition-all">Submit a Fable</a>
+        </div>
+
+        <!-- Back to Home CTA -->
+        <div class="hidden md:flex items-center">
+          <a href="../index.html" class="inline-flex items-center gap-2 bg-amber-800 hover:bg-amber-900 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition-all transform hover:-translate-y-0.5">
+            <i class="fa-solid fa-arrow-left"></i> Back to Archive
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex items-center md:hidden">
+          <button id="mobile-menu-btn" class="text-slate-700 hover:text-amber-700 p-2 rounded-lg hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-colors" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="hidden md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-4 py-3 space-y-2 shadow-inner">
+      <a href="../index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-800">Home</a>
+      
+      <!-- Collapsible Mobile Section: Fables -->
+      <div class="space-y-1">
+        <div class="px-3 py-2 text-xs font-semibold text-amber-800 uppercase tracking-wider">Fables</div>
+        <a href="tortoise-vs-hare.html" class="block pl-6 pr-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-amber-50/50 hover:text-amber-800">The Tortoise and the Hare</a>
+        <a href="fox-and-grapes.html" class="block pl-6 pr-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-amber-50/50 hover:text-amber-800">The Fox and the Grapes</a>
+        <a href="lion-and-mouse.html" class="block pl-6 pr-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-amber-50/50 hover:text-amber-800">The Lion and the Mouse</a>
+      </div>
+
+      <!-- Collapsible Mobile Section: Categories -->
+      <div class="space-y-1 pt-2">
+        <div class="px-3 py-2 text-xs font-semibold text-amber-800 uppercase tracking-wider">Categories</div>
+        <a href="../index.html?filter=pride" class="block pl-6 pr-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-amber-50/50 hover:text-amber-800">Pride & Humility</a>
+        <a href="../index.html?filter=wisdom" class="block pl-6 pr-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-amber-50/50 hover:text-amber-800">Wisdom & Wit</a>
+        <a href="../index.html?filter=kindness" class="block pl-6 pr-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-amber-50/50 hover:text-amber-800">Kindness & Help</a>
+      </div>
+
+      <div class="border-t border-slate-100 pt-2 mt-2">
+        <a href="../index.html#submit-fable" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-800">Submit a Fable</a>
+        <a href="../index.html" class="mt-2 block w-full text-center bg-amber-800 hover:bg-amber-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+          <i class="fa-solid fa-arrow-left mr-1"></i> Back to Archive
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HEADER SECTION ================= -->
+  <header class="relative overflow-hidden py-12 md:py-16 bg-gradient-to-b from-amber-50/60 to-transparent">
+    <!-- Atmospheric background decor -->
+    <div class="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-amber-100/40 filter blur-3xl -z-10 pointer-events-none"></div>
+    <div class="absolute top-1/3 right-1/4 -translate-y-1/2 translate-x-1/2 w-80 h-80 rounded-full bg-yellow-100/30 filter blur-3xl -z-10 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <!-- Back Breadcrumb link -->
+      <nav class="flex items-center justify-center space-x-2 text-sm text-slate-500 mb-4 font-medium">
+        <a href="../index.html" class="hover:text-amber-700 transition-colors">Archive</a>
+        <span>/</span>
+        <a href="#" class="hover:text-amber-700 transition-colors">Fables</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold truncate max-w-[180px]">Tortoise and the Hare</span>
+      </nav>
+
+      <!-- Fable Title -->
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-slate-950 mb-4 leading-tight">
+        The Tortoise and the Hare
+      </h1>
+      
+      <!-- Fable Subtitle or Origin tag -->
+      <p class="text-amber-800 font-medium italic tracking-wide text-lg font-serif mb-6">
+        An Aesopic tale of pride, persistence, and pacing.
+      </p>
+
+      <!-- Metadata Panel (Reading Time, Category, Views) -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-3 sm:gap-6 bg-white/70 backdrop-blur-sm border border-amber-950/5 px-4 py-2 rounded-full text-sm text-slate-600 shadow-sm">
+        <span class="flex items-center gap-1.5">
+          <i class="fa-regular fa-clock text-amber-700"></i>
+          <span id="reading-time">1 min read</span>
+        </span>
+        <span class="hidden sm:inline text-slate-300">|</span>
+        <span class="flex items-center gap-1.5">
+          <i class="fa-solid fa-tags text-amber-700"></i>
+          <a href="../index.html?filter=pride" class="hover:underline hover:text-amber-800">Pride & Humility</a>
+        </span>
+        <span class="hidden sm:inline text-slate-300">|</span>
+        <span class="flex items-center gap-1.5">
+          <i class="fa-solid fa-heart text-amber-700"></i>
+          <button onclick="incrementLike()" class="hover:text-red-500 transition-all flex items-center gap-1 group">
+            <span id="like-counter">124</span> likes
+          </button>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN BODY ================= -->
+  <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Fable Content (Col span: 8) -->
+      <article class="lg:col-span-8 bg-white border border-amber-900/10 rounded-2xl p-6 sm:p-10 shadow-md relative">
+        <!-- Bookmark icon decor -->
+        <div class="absolute top-0 right-8 transform -translate-y-2 bg-amber-700 text-white px-3 py-4 rounded-b-md shadow-md">
+          <i class="fa-solid fa-bookmark text-lg"></i>
+        </div>
+
+        <!-- Read Aloud Controller -->
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-100 bg-amber-50/40 p-4 rounded-xl">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-amber-700 text-white flex items-center justify-center shadow-inner">
+              <i class="fa-solid fa-volume-high"></i>
+            </span>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Audio Narration</p>
+              <p id="tts-status-text" class="text-xs text-slate-600 font-medium">Click to listen to the fable</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="tts-play-btn" onclick="toggleAudio()" class="bg-amber-800 hover:bg-amber-900 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5">
+              <i class="fa-solid fa-play"></i> <span id="tts-btn-label">Listen</span>
+            </button>
+            <button id="tts-stop-btn" onclick="stopAudio()" class="hidden bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-2 rounded-lg text-xs font-semibold transition-all">
+              <i class="fa-solid fa-stop"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Story Content Container -->
+        <div id="fable-text" class="prose prose-amber max-w-none text-slate-700 leading-relaxed font-serif text-lg sm:text-xl space-y-6">
+          <p class="indent-6">
+            The Hare was once boasting of his speed to the other animals. <span class="bg-amber-50 font-sans text-xs uppercase px-1.5 py-0.5 rounded text-amber-800 ml-1">"I have never yet been beaten,"</span> he said, <span class="bg-amber-50 font-sans text-xs uppercase px-1.5 py-0.5 rounded text-amber-800 ml-1">"if I run with my full speed. I challenge any one here to race with me."</span>
+          </p>
+          <p class="indent-6">
+            The Tortoise said quietly, <span class="bg-amber-50 font-sans text-xs uppercase px-1.5 py-0.5 rounded text-amber-800 ml-1">"I accept your challenge."</span>
+          </p>
+          <p class="indent-6">
+            <span class="bg-amber-50 font-sans text-xs uppercase px-1.5 py-0.5 rounded text-amber-800 ml-1">"That is a good joke,"</span> said the Hare; <span class="bg-amber-50 font-sans text-xs uppercase px-1.5 py-0.5 rounded text-amber-800 ml-1">"I could dance round you all the way."</span>
+          </p>
+          <p class="indent-6">
+            <span class="bg-amber-50 font-sans text-xs uppercase px-1.5 py-0.5 rounded text-amber-800 ml-1">"Keep your boasting till you've won,"</span> answered the Tortoise. <span class="bg-amber-50 font-sans text-xs uppercase px-1.5 py-0.5 rounded text-amber-800 ml-1">"Shall we begin?"</span>
+          </p>
+          <p class="indent-6">
+            So a course was agreed on and a starting-point chosen. The Hare darted almost out of sight at once, but soon stopped and, to show his contempt for the Tortoise, lay down to have a nap. 
+          </p>
+          <p class="indent-6">
+            The Tortoise plodded on and plodded on, and when the Hare awoke from his nap, he saw the Tortoise just near the winning-post and could not run up in time to save the race.
+          </p>
+        </div>
+
+        <!-- Interactive Reflection Checkpoint (User Engagement) -->
+        <div class="mt-12 pt-8 border-t border-slate-100">
+          <h3 class="font-serif text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap text-amber-700"></i> Reader's Reflection
+          </h3>
+          <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+            Fables are mirrors of human behavior. Have you ever seen an example in real life where "slow and steady" won over speed and arrogance?
+          </p>
+          <form id="reflection-form" onsubmit="handleReflection(event)" class="space-y-3">
+            <textarea id="reflection-input" placeholder="Type your personal takeaway or thought here..." rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-amber-500/20 focus:border-amber-700 outline-none transition-all placeholder:text-slate-400"></textarea>
+            <div class="flex justify-between items-center">
+              <span id="char-count" class="text-xs text-slate-400">0 / 300 characters</span>
+              <button type="submit" class="bg-amber-800 hover:bg-amber-900 text-white font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm">
+                Submit Thought to Community Log
+              </button>
+            </div>
+          </form>
+
+          <!-- Local simulated submissions log -->
+          <div id="submissions-container" class="mt-6 space-y-3 hidden">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Recent Community Thoughts</p>
+            <div id="submissions-list" class="space-y-2 max-h-40 overflow-y-auto custom-scroll pr-2">
+              <!-- Submissions populated by JS -->
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar Controls (Col span: 4) -->
+      <aside class="lg:col-span-4 space-y-6">
+
+        <!-- Sidebar Section: Interactive Moral Reveal -->
+        <div class="bg-gradient-to-br from-amber-50 to-amber-100/40 border border-amber-900/10 rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-amber-700 text-xl"><i class="fa-solid fa-brain"></i></span>
+            <h3 class="font-serif font-bold text-lg text-slate-900">The Moral Lesson</h3>
+          </div>
+          <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+            Aesop's stories always contain truths about character. Press below to reflect upon and reveal the timeless lesson.
+          </p>
+          <!-- Interactive moral toggle -->
+          <div id="moral-container" class="relative overflow-hidden rounded-xl bg-white border border-amber-900/10 p-4 min-h-[100px] flex items-center justify-center transition-all duration-300">
+            <!-- Blurred overlay state -->
+            <div id="moral-overlay" class="absolute inset-0 bg-slate-50/90 backdrop-blur-sm flex flex-col items-center justify-center gap-2 p-3 text-center transition-all duration-500 cursor-pointer" onclick="revealMoral()">
+              <i class="fa-solid fa-lock text-amber-700 text-lg"></i>
+              <span class="text-xs font-semibold text-amber-900 uppercase tracking-wider">Reveal Timeless Moral</span>
+            </div>
+            <!-- Revealed moral content -->
+            <div class="text-center">
+              <p class="font-serif italic font-bold text-slate-900 text-lg">"Slow and steady wins the race."</p>
+              <p class="text-xs text-slate-500 mt-2">Persistence and consistent effort overcome talent combined with arrogance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Section: Community Contributor Info -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150" alt="Contributor Profile" onerror="this.src='https://via.placeholder.com/150'" class="w-12 h-12 rounded-full object-cover border-2 border-amber-500/20">
+            <div>
+              <p class="text-xs text-slate-400 font-medium">Page Maintained By</p>
+              <p class="font-semibold text-slate-800 text-sm">Eleanor Vance</p>
+              <p class="text-xs text-amber-700 font-medium flex items-center gap-1">
+                <i class="fa-solid fa-award"></i> Lead Archiver
+              </p>
+            </div>
+          </div>
+          <p class="text-slate-500 text-xs leading-relaxed mb-4">
+            This fable was verified, annotated, and formatted by our community editorial board. Spot a typo or want to improve the notes?
+          </p>
+          <a href="../index.html#submit-fable" class="block text-center border border-amber-800/20 hover:border-amber-800 text-amber-800 bg-amber-50/30 hover:bg-amber-50/80 font-medium text-xs py-2 rounded-xl transition-all">
+            Propose Revision
+          </a>
+        </div>
+
+        <!-- Sidebar Section: Quick Navigation Links -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-serif font-semibold text-slate-900 mb-3 text-base">Read Next</h4>
+          <div class="space-y-3">
+            <a href="fox-and-grapes.html" class="flex items-start gap-3 p-2 hover:bg-amber-50/50 rounded-lg transition-colors group">
+              <span class="bg-amber-50 group-hover:bg-amber-100 text-amber-800 text-sm font-semibold w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
+                1
+              </span>
+              <div>
+                <p class="font-medium text-slate-800 text-xs sm:text-sm group-hover:text-amber-900 transition-colors">The Fox and the Grapes</p>
+                <p class="text-slate-400 text-[11px] truncate max-w-[180px]">Disdain for what you cannot reach</p>
+              </div>
+            </a>
+            <a href="lion-and-mouse.html" class="flex items-start gap-3 p-2 hover:bg-amber-50/50 rounded-lg transition-colors group">
+              <span class="bg-amber-50 group-hover:bg-amber-100 text-amber-800 text-sm font-semibold w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
+                2
+              </span>
+              <div>
+                <p class="font-medium text-slate-800 text-xs sm:text-sm group-hover:text-amber-900 transition-colors">The Lion and the Mouse</p>
+                <p class="text-slate-400 text-[11px] truncate max-w-[180px]">No act of kindness is ever wasted</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ================= FOOTER SECTION (MATCHING HOMEPAGE) ================= -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-amber-950/20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-slate-800">
+        
+        <!-- Brand identity -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-amber-600 text-xl"><i class="fa-solid fa-feather-pointed"></i></span>
+            <span class="font-serif font-bold text-white text-lg tracking-wider">The Aesop Web Fable Project</span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-sm leading-relaxed">
+            A collaborative digital archive preserving timeless wisdom. Curated and maintained entirely by modern readers, students, and educators from around the globe.
+          </p>
+        </div>
+
+        <!-- Internal Links -->
+        <div>
+          <h4 class="text-slate-200 font-semibold font-serif mb-4 tracking-wide text-sm">Explore</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html" class="hover:text-amber-500 transition-colors">Fable Index</a></li>
+            <li><a href="../index.html#fable-of-the-day" class="hover:text-amber-500 transition-colors">Fable of the Day</a></li>
+            <li><a href="../index.html#submit-fable" class="hover:text-amber-500 transition-colors">Submit a Tale</a></li>
+            <li><a href="#" class="hover:text-amber-500 transition-colors">Volunteer Guidelines</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-slate-200 font-semibold font-serif mb-4 tracking-wide text-sm">Reference</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://en.wikipedia.org/wiki/Aesop" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors">Who was Aesop?</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Aesop%27s_Fables" target="_blank" rel="noopener" class="hover:text-amber-500 transition-colors">History of the Fables</a></li>
+            <li><a href="#" class="hover:text-amber-500 transition-colors">Classroom Curriculums</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Social and Copyright Ribbon -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-500">
+          &copy; 2026 The Aesop Web Fable Project. All rights reserved. Open-source, crowd-curated knowledge.
+        </p>
+        
+        <!-- Social Media Icons (Directly requested matching variables placeholder) -->
+        <div class="flex items-center space-x-4">
+          <a href="https://youtube.com/@YOUR_CHANNEL_HERE" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-red-500 hover:border-red-500/20 hover:bg-slate-800 transition-all" aria-label="YouTube Channel">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://facebook.com/YOUR_PAGE_HERE" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-blue-500 hover:border-blue-500/20 hover:bg-slate-800 transition-all" aria-label="Facebook Page">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com/YOUR_HANDLE_HERE" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-pink-500 hover:border-pink-500/20 hover:bg-slate-800 transition-all" aria-label="Instagram Profile">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification System (Matches custom UI standard) -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-10 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-slate-900 text-white px-5 py-3.5 rounded-xl shadow-xl max-w-sm">
+    <span class="text-amber-500 text-lg" id="toast-icon"><i class="fa-solid fa-circle-check"></i></span>
+    <div>
+      <h5 class="font-bold text-xs text-white uppercase tracking-wider" id="toast-title">Success</h5>
+      <p class="text-xs text-slate-300 mt-0.5" id="toast-desc">Reflection submitted successfully!</p>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Global Elements
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const menuIcon = document.getElementById('menu-icon');
+    const reflectionInput = document.getElementById('reflection-input');
+    const charCount = document.getElementById('char-count');
+    const submissionsContainer = document.getElementById('submissions-container');
+    const submissionsList = document.getElementById('submissions-list');
+    const ttsStatusText = document.getElementById('tts-status-text');
+    const ttsPlayBtn = document.getElementById('tts-play-btn');
+    const ttsBtnLabel = document.getElementById('tts-btn-label');
+    const ttsStopBtn = document.getElementById('tts-stop-btn');
+
+    // 1. Mobile Menu Open/Close Toggle
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileDrawer.classList.contains('hidden');
+        if (isHidden) {
+          mobileDrawer.classList.remove('hidden');
+          menuIcon.className = "fa-solid fa-xmark text-xl";
+        } else {
+          mobileDrawer.classList.add('hidden');
+          menuIcon.className = "fa-solid fa-bars text-xl";
+        }
+      });
+    }
+
+    // 2. Local State: Likes Counter
+    let likes = 124;
+    let liked = false;
+    function incrementLike() {
+      if (!liked) {
+        likes++;
+        liked = true;
+        document.getElementById('like-counter').innerText = likes;
+        document.getElementById('like-counter').parentElement.classList.add('text-red-500');
+        showToast("Post Liked", "Your support has been documented!", "fa-heart");
+      } else {
+        likes--;
+        liked = false;
+        document.getElementById('like-counter').innerText = likes;
+        document.getElementById('like-counter').parentElement.classList.remove('text-red-500');
+      }
+    }
+
+    // 3. Web Speech API Integration (Text-to-Speech)
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    function toggleAudio() {
+      if (!synth) {
+        showToast("Audio Unsupported", "Your browser does not support Speech Synthesis.", "fa-triangle-exclamation");
+        return;
+      }
+
+      if (isSpeaking) {
+        // Pause state control
+        if (synth.paused) {
+          synth.resume();
+          isSpeaking = true;
+          updateAudioUI(true, "Reading aloud...");
+        } else {
+          synth.pause();
+          updateAudioUI(false, "Reading paused");
+        }
+      } else {
+        // Retrieve and format raw story text
+        const textElements = document.querySelectorAll('#fable-text p');
+        let fullText = "";
+        textElements.forEach(el => fullText += el.innerText + " ");
+
+        utterance = new SpeechSynthesisUtterance(fullText);
+        utterance.rate = 0.95; // Steady, narrative pace
+        utterance.pitch = 1.0;
+
+        utterance.onend = () => {
+          stopAudio();
+        };
+
+        utterance.onerror = () => {
+          stopAudio();
+        };
+
+        synth.speak(utterance);
+        isSpeaking = true;
+        updateAudioUI(true, "Reading aloud...");
+        ttsStopBtn.classList.remove('hidden');
+      }
+    }
+
+    function stopAudio() {
+      if (synth) {
+        synth.cancel();
+      }
+      isSpeaking = false;
+      updateAudioUI(false, "Click to listen to the fable");
+      ttsStopBtn.classList.add('hidden');
+    }
+
+    function updateAudioUI(playing, messageText) {
+      ttsStatusText.innerText = messageText;
+      if (playing) {
+        ttsPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i> <span id="tts-btn-label">Pause</span>';
+        ttsPlayBtn.className = "bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5";
+      } else {
+        ttsPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i> <span id="tts-btn-label">Listen</span>';
+        ttsPlayBtn.className = "bg-amber-800 hover:bg-amber-900 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5";
+      }
+    }
+
+    // 4. Character Limit Counter for Reflection Submission Box
+    if (reflectionInput) {
+      reflectionInput.addEventListener('input', (e) => {
+        const count = e.target.value.length;
+        charCount.innerText = `${count} / 300 characters`;
+        if (count > 300) {
+          charCount.classList.add('text-red-500');
+        } else {
+          charCount.classList.remove('text-red-500');
+        }
+      });
+    }
+
+    // 5. Submit Reflection Handler (Simulated community posts)
+    function handleReflection(e) {
+      e.preventDefault();
+      const text = reflectionInput.value.trim();
+
+      if (!text) {
+        showToast("Empty Thought", "Please type something before submitting.", "fa-triangle-exclamation");
+        return;
+      }
+
+      if (text.length > 300) {
+        showToast("Too Long", "Please keep your thought under 300 characters.", "fa-circle-xmark");
+        return;
+      }
+
+      // Add to visible log list
+      submissionsContainer.classList.remove('hidden');
+      const timeString = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      
+      const newSubmission = document.createElement('div');
+      newSubmission.className = "p-3 bg-amber-50/50 border border-amber-950/5 rounded-xl text-xs space-y-1";
+      newSubmission.innerHTML = `
+        <div class="flex items-center justify-between text-[10px] text-slate-400 font-medium">
+          <span>Anonymous Reader</span>
+          <span>Today, ${timeString}</span>
+        </div>
+        <p class="text-slate-700 italic">"${escapeHTML(text)}"</p>
+      `;
+
+      submissionsList.insertBefore(newSubmission, submissionsList.firstChild);
+      
+      // Clean input & trigger toast success feedback
+      reflectionInput.value = "";
+      charCount.innerText = "0 / 300 characters";
+      showToast("Thought Recorded", "Your contribution is listed under Recent Community Thoughts!", "fa-feather");
+    }
+
+    // Escape raw input strings safely
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag] || tag)
+      );
+    }
+
+    // 6. Interactive Moral Reveal Overlay Logic
+    function revealMoral() {
+      const overlay = document.getElementById('moral-overlay');
+      if (overlay) {
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        showToast("Moral Unveiled", "Contemplate on: Slow and steady wins the race.", "fa-lightbulb");
+      }
+    }
+
+    // 7. Dynamic Web Toast Notifications
+    function showToast(title, desc, iconName) {
+      const toast = document.getElementById('toast');
+      const toastTitle = document.getElementById('toast-title');
+      const toastDesc = document.getElementById('toast-desc');
+      const toastIcon = document.getElementById('toast-icon');
+
+      if (toast && toastTitle && toastDesc && toastIcon) {
+        toastTitle.innerText = title;
+        toastDesc.innerText = desc;
+        toastIcon.innerHTML = `<i class="fa-solid ${iconName}"></i>`;
+
+        // Slide up / fade in
+        toast.classList.remove('translate-y-10', 'opacity-0', 'pointer-events-none');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        // Dismiss sequence after 3.5 seconds
+        setTimeout(() => {
+          toast.classList.add('translate-y-10', 'opacity-0', 'pointer-events-none');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 3500);
+      }
+    }
+
+    // On Load: Calculate reading metrics based on content word-length
+    window.onload = function() {
+      const textElements = document.querySelectorAll('#fable-text p');
+      let wordCount = 0;
+      textElements.forEach(el => wordCount += el.innerText.split(/\s+/).length);
+      const minutes = Math.max(1, Math.ceil(wordCount / 200)); // ~200 Words Per Minute
+      document.getElementById('reading-time').innerText = `${minutes} min read`;
+    };
+  </script>
+</body>
+</html>
